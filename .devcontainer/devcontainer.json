@@ -14,6 +14,7 @@
 	"onCreateCommand": "command -v xhost >/dev/null 2>&1 && xhost +local:docker || true",
 	"postCreateCommand": "/usr/local/bin/build_ws",
 	"runArgs": [
+		"--name=ros2-devcontainer",  // static container name so attach_terminal.sh can find it reliably
 		"--network=host",  // allows the container to access the host network
 		"--cap-add=SYS_PTRACE",  // adds the ability to use ptrace for debugging
 		"--security-opt=seccomp:unconfined", // allows the container to run without a security profile for debugging
